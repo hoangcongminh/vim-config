@@ -7,10 +7,10 @@
 
 let mapleader=" "
 
-set shell=pwsh
-set shellcmdflag=-command
-set shellquote=\"
-set shellxquote=
+" set shell=pwsh
+" set shellcmdflag=-command
+" set shellquote=\"
+" set shellxquote=
 
 set termguicolors
 set number
@@ -88,9 +88,9 @@ let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
 " colorscheme vscode
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme gruvbox-flat
-" colorscheme tokyonight
+colorscheme tokyonight
 "
 let g:tokyonight_colors = {
   \ 'hint': 'orange',
@@ -100,8 +100,8 @@ let g:tokyonight_transparent = 1 "1 mean true
 let g:tokyonight_transparent_sidebar = 1
 
 let g:rainbow_active = 1
-
-let g:airline_theme='bubblegum'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
 
 "custom style
 highlight Normal guibg=NONE ctermbg=NONE
