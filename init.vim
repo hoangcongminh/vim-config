@@ -66,6 +66,9 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'ryanoasis/vim-devicons'
 " Git
 Plug 'tpope/vim-fugitive'
+" GitSigns
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 " Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -387,4 +390,4 @@ endif
 
 luafile C:\Users\congm\AppData\Local\nvim\toggleterm.lua
 luafile C:\Users\congm\AppData\Local\nvim\telescope.lua
-
+luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
