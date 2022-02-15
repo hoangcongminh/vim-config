@@ -44,9 +44,6 @@ Plug 'akinsho/toggleterm.nvim'
 " File and folder management
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -84,7 +81,10 @@ Plug 'tpope/vim-commentary'
 " Copilot
 Plug 'github/copilot.vim'
 
+"Other
+Plug 'tpope/vim-surround'
 Plug 'frazrepo/vim-rainbow'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -112,7 +112,7 @@ let g:lightline = {
       \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ],
+      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
       \  'right': [ [ 'lineinfo' ],
       \             [ 'percent' ],
       \             [ 'filetype' ],
@@ -122,6 +122,13 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
 
 " lightline trans background
 let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
