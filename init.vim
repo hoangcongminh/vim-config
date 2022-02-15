@@ -1,4 +1,3 @@
-   " ______                     __  ____       __  
   " / ____/___  ____  ____ _   /  |/  (_)___  / /_ 
  " / /   / __ \/ __ \/ __ `/  / /|_/ / / __ \/ __ \
 " / /___/ /_/ / / / / /_/ /  / /  / / / / / / / / /
@@ -12,6 +11,8 @@ let mapleader=" "
 " set shellquote=\"
 " set shellxquote=
 
+set noshowmode
+set nocompatible
 set termguicolors
 set number
 set relativenumber
@@ -32,6 +33,8 @@ set mouse=a "enable mouse for all mode
 " => VimPlug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('C:\Users\congm\AppData\Local\nvim\plugged')
+" Syntax Highlight
+Plug 'sheerun/vim-polyglot'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " smooth scrolling
@@ -62,6 +65,7 @@ Plug 'jiangmiao/auto-pairs'
 " Dart
 Plug 'dart-lang/dart-vim-plugin'
 " Color Scheme 
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'morhetz/gruvbox'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
@@ -73,9 +77,8 @@ Plug 'tpope/vim-fugitive'
 " GitSigns
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-" Statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Light line
+Plug 'itchyny/lightline.vim'
 " Comment
 Plug 'tpope/vim-commentary'
 " Copilot
@@ -91,6 +94,41 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Lightline config
+let g:lightline = {
+      \ 'mode_map': {
+        \ 'n' : 'N',
+        \ 'i' : 'I',
+        \ 'R' : 'R',
+        \ 'v' : 'V',
+        \ 'V' : 'VL',
+        \ "\<C-v>": 'VB',
+        \ 'c' : 'C',
+        \ 's' : 'S',
+        \ 'S' : 'SL',
+        \ "\<C-s>": 'SB',
+        \ 't': 'T',
+        \ },
+      \ 'colorscheme': 'tokyonight',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'absolutepath', 'modified' ] ],
+      \  'right': [ [ 'lineinfo' ],
+      \             [ 'percent' ],
+      \             [ 'filetype' ],
+      \               ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+" lightline trans background
+let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+let s:palette.inactive.middle = s:palette.normal.middle
+let s:palette.tabline.middle = s:palette.normal.middle
+
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
@@ -107,8 +145,6 @@ let g:tokyonight_transparent = 1 "1 mean true
 let g:tokyonight_transparent_sidebar = 1
 
 let g:rainbow_active = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='deus'
 
 "custom style
 highlight Normal guibg=NONE ctermbg=NONE
@@ -200,12 +236,15 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-flutter-tools',
+  \ 'coc-flutter',
+  \ 'coc-lua',
   \ 'coc-bloc',
   \ 'coc-snippets',
   \ 'coc-yaml',
   \ 'coc-css',
   \ 'coc-html',
   \ 'coc-json',
+  \ 'coc-yaml',
   \ ]
 
 
