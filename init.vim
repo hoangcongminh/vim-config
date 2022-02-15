@@ -32,6 +32,10 @@ set mouse=a "enable mouse for all mode
 " => VimPlug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('C:\Users\congm\AppData\Local\nvim\plugged')
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" smooth scrolling
+Plug 'psliwka/vim-smoothie'
 " FloatTerm
 Plug 'akinsho/toggleterm.nvim'
 " File and folder management
@@ -90,10 +94,10 @@ call plug#end()
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
-" colorscheme vscode
+colorscheme vscode
 " colorscheme gruvbox
 " colorscheme gruvbox-flat
-colorscheme tokyonight
+" colorscheme tokyonight
 "
 let g:tokyonight_colors = {
   \ 'hint': 'orange',
@@ -391,3 +395,4 @@ endif
 luafile C:\Users\congm\AppData\Local\nvim\toggleterm.lua
 luafile C:\Users\congm\AppData\Local\nvim\telescope.lua
 luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
+luafile C:\Users\congm\AppData\Local\nvim\treesitter.lua
