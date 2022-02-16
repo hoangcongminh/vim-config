@@ -76,6 +76,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 " Light line
 Plug 'itchyny/lightline.vim'
+Plug 'josa42/vim-lightline-coc'
 " Comment
 Plug 'tpope/vim-commentary'
 " Copilot
@@ -109,10 +110,11 @@ let g:lightline = {
         \ "\<C-s>": 'SB',
         \ 't': 'T',
         \ },
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
+      \             [  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ] ],
       \  'right': [ [ 'lineinfo' ],
       \             [ 'percent' ],
       \             [ 'filetype' ],
@@ -123,6 +125,9 @@ let g:lightline = {
       \ },
       \ }
 
+" register compoments:
+call lightline#coc#register()
+
 let g:lightline.tabline = {
   \   'left': [ ['tabs'] ],
   \   'right': [ ['close'] ]
@@ -131,18 +136,19 @@ set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
 " lightline trans background
-let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-let s:palette.inactive.middle = s:palette.normal.middle
-let s:palette.tabline.middle = s:palette.normal.middle
+" let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
+" let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+" let s:palette.inactive.middle = s:palette.normal.middle
+" let s:palette.tabline.middle = s:palette.normal.middle
 
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
-colorscheme vscode
-" colorscheme gruvbox
+" colorscheme vscode
+colorscheme gruvbox
 " colorscheme gruvbox-flat
 " colorscheme tokyonight
+" colorscheme spaceduck
 "
 let g:tokyonight_colors = {
   \ 'hint': 'orange',
