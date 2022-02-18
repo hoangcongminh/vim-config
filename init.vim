@@ -74,9 +74,10 @@ Plug 'tpope/vim-fugitive'
 " GitSigns
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-" Light line
-Plug 'itchyny/lightline.vim'
-Plug 'josa42/vim-lightline-coc'
+" LuaLine
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'kyazdani42/nvim-web-devicons'
 " Comment
 Plug 'tpope/vim-commentary'
 " Copilot
@@ -95,52 +96,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Lightline config
-let g:lightline = {
-      \ 'mode_map': {
-        \ 'n' : 'N',
-        \ 'i' : 'I',
-        \ 'R' : 'R',
-        \ 'v' : 'V',
-        \ 'V' : 'VL',
-        \ "\<C-v>": 'VB',
-        \ 'c' : 'C',
-        \ 's' : 'S',
-        \ 'S' : 'SL',
-        \ "\<C-s>": 'SB',
-        \ 't': 'T',
-        \ },
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-      \             [  'coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok' ], [ 'coc_status'  ] ],
-      \  'right': [ [ 'lineinfo' ],
-      \             [ 'percent' ],
-      \             [ 'filetype' ],
-      \               ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
-" register compoments:
-call lightline#coc#register()
-
-let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ ['close'] ]
-  \ }
-set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
-
-" lightline trans background
-" let s:palette = g:lightline#colorscheme#{g:lightline.colorscheme}#palette
-" let s:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-" let s:palette.inactive.middle = s:palette.normal.middle
-" let s:palette.tabline.middle = s:palette.normal.middle
-
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
@@ -198,7 +153,7 @@ inoremap <C-a> <C-o>^
 " Go to next quickfix(error)
 nnoremap <C-k> :cp<CR>
 nnoremap <C-j> :cn<CR>
-nnoremap <TAB> :tabn<CR>
+nnoremap <F2> :tabn<CR>
 
 " nnoremap <C-p> :Files<CR>
 
@@ -448,3 +403,4 @@ luafile C:\Users\congm\AppData\Local\nvim\toggleterm.lua
 luafile C:\Users\congm\AppData\Local\nvim\telescope.lua
 luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
 luafile C:\Users\congm\AppData\Local\nvim\treesitter.lua
+luafile C:\Users\congm\AppData\Local\nvim\lualine.lua
