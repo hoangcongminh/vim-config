@@ -29,9 +29,7 @@ set nojoinspaces
 set wrap
 set mouse=a "enable mouse for all mode
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VimPlug
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIMPLUG <=
 call plug#begin('C:\Users\congm\AppData\Local\nvim\plugged')
 " Syntax Highlight
 Plug 'sheerun/vim-polyglot'
@@ -69,15 +67,15 @@ Plug 'eddyekofo94/gruvbox-flat.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 " Git
 Plug 'tpope/vim-fugitive'
 " GitSigns
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-" LuaLine
+" statusline and tabline
 Plug 'nvim-lualine/lualine.nvim'
-" If you want to have icons in your statusline choose one of these
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 " Comment
 Plug 'tpope/vim-commentary'
 " Copilot
@@ -89,19 +87,14 @@ Plug 'frazrepo/vim-rainbow'
 
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VimPlug
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Theme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => THEME <=
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
 " colorscheme vscode
-colorscheme gruvbox
-" colorscheme gruvbox-flat
+" colorscheme gruvbox
+colorscheme gruvbox-flat
 " colorscheme tokyonight
 " colorscheme spaceduck
 "
@@ -134,14 +127,8 @@ set cursorline
 hi clear CursorLine
 hi! CursorLine gui=underline cterm=underline
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Theme
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General Settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GENERAL SETTINGS <=
 " Map Emacs like movement in Insert mode
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
@@ -160,11 +147,18 @@ nnoremap <F2> :tabn<CR>
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " NERDTree config
-let NERDTreeMinimalUI=1
-let g:NERDTreeStatusline = '%#NonText#'
-let g:nerdtree_sync_cursorline = 1
-let g:NERDTreeHighlightCursorline = 1
-let g:NERDTreeGitStatusWithFlags = 1
+"
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeDirArrows=1
+let g:NERDTreeStatusline='%#NonText#'
+let g:nerdtree_sync_cursorline=1
+let g:NERDTreeHighlightCursorline=1
+let g:NERDTreeGitStatusWithFlags=1
+let g:NERDTreeQuitOnOpen=1
+let g:NERDTreeAutoDeleteBuffer=1
+
 
 nnoremap <leader>fe :CocCommand flutter.emulators <CR>
 nnoremap <leader>fq :CocCommand flutter.dev.quit <CR>
@@ -190,14 +184,9 @@ let g:coc_snippet_next = '<TAB>'
 let g:coc_snippet_prev = '<S-TAB>'
 
 let g:dart_format_on_save = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General Settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CoC
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => COC <=
 "coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
@@ -384,13 +373,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Resume latest coc list.
 " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => CoC
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Another settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ANOTHER <=
 " Disable Ctrl-Z(suspend not work in windows)
 let s:is_win = has('win32') || has('win64')
 if s:is_win
@@ -399,8 +383,12 @@ if s:is_win
     nmap <C-z> <Nop>
 endif
 
+
+" => LUA MODULE <=
 luafile C:\Users\congm\AppData\Local\nvim\toggleterm.lua
 luafile C:\Users\congm\AppData\Local\nvim\telescope.lua
 luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
 luafile C:\Users\congm\AppData\Local\nvim\treesitter.lua
 luafile C:\Users\congm\AppData\Local\nvim\lualine.lua
+luafile C:\Users\congm\AppData\Local\nvim\barbar.lua
+
