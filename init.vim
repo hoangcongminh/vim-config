@@ -12,18 +12,21 @@ let mapleader=" "
 " set shellxquote=
 
 set noshowmode
-set nocompatible
 set termguicolors
+set ruler
 set number
 set relativenumber
+
 set autoindent
 set smartindent
+
 set scrolloff=8
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
+
 set noswapfile
 set nojoinspaces
 set wrap
@@ -35,8 +38,6 @@ call plug#begin('C:\Users\congm\AppData\Local\nvim\plugged')
 Plug 'sheerun/vim-polyglot'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" smooth scrolling
-Plug 'psliwka/vim-smoothie'
 " FloatTerm
 Plug 'akinsho/toggleterm.nvim'
 " File and folder management
@@ -46,9 +47,7 @@ Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " telescope
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim' 
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-telescope/telescope.nvim'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -92,40 +91,40 @@ call plug#end()
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
-" colorscheme vscode
+colorscheme vscode
 " colorscheme gruvbox
-colorscheme gruvbox-flat
+" colorscheme gruvbox-flat
 " colorscheme tokyonight
 " colorscheme spaceduck
 "
-let g:tokyonight_colors = {
-  \ 'hint': 'orange',
-  \ 'error': '#ff0000'
-\ }
-let g:tokyonight_transparent = 1 "1 mean true
-let g:tokyonight_transparent_sidebar = 1
+ let g:tokyonight_colors = {
+   \ 'hint': 'orange',
+   \ 'error': '#ff0000'
+ \ }
+ let g:tokyonight_transparent = 1 "1 mean true
+ let g:tokyonight_transparent_sidebar = 1
 
-let g:rainbow_active = 1
+ let g:rainbow_active = 1
 
-"custom style
-highlight Normal guibg=NONE ctermbg=NONE
-highlight LineNr guibg=NONE ctermbg=NONE
-highlight SignColumn guibg=NONE ctermbg=NONE
-highlight EndOfBuffer guibg=NONE ctermbg=NONE
-highlight NvimTreeNormal guibg=NONE
-highlight BufferTabpageFill guibg=none
-highlight CursorLineNr guibg=NONE 
-highlight LspDiagnosticsUnderlineInformation guifg=NONE
-highlight LspDiagnosticsUnderlineError guifg=NONE
+" custom style
+ highlight Normal guibg=NONE ctermbg=NONE
+ highlight LineNr guibg=NONE ctermbg=NONE
+ highlight SignColumn guibg=NONE ctermbg=NONE
+ highlight EndOfBuffer guibg=NONE ctermbg=NONE
+ highlight NvimTreeNormal guibg=NONE
+ highlight BufferTabpageFill guibg=none
+ highlight CursorLineNr guibg=NONE 
+ highlight LspDiagnosticsUnderlineInformation guifg=NONE
+ highlight LspDiagnosticsUnderlineError guifg=NONE
 
-highlight NvimTreeCursorline gui=underline cterm=underline guibg=NONE
-highlight Comment gui=italic
-highlight link GitSignsCurrentLineBlame Comment
-highlight NvimTreeFolderIcon guibg=blue
+ highlight NvimTreeCursorline gui=underline cterm=underline guibg=NONE
+ highlight Comment gui=italic
+ highlight link GitSignsCurrentLineBlame Comment
+ highlight NvimTreeFolderIcon guibg=blue
 
-set cursorline
-hi clear CursorLine
-hi! CursorLine gui=underline cterm=underline
+ set cursorline
+ hi clear CursorLine
+ hi! CursorLine gui=underline cterm=underline
 
 
 " => GENERAL SETTINGS <=
@@ -147,8 +146,9 @@ nnoremap <F2> :tabn<CR>
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " NERDTree config
-"
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+
+" open NERDTree on startup
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
 
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=1
