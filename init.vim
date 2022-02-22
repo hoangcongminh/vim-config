@@ -13,12 +13,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " FloatTerm
 Plug 'akinsho/toggleterm.nvim'
 " File and folder management
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-
-Plug 'preservim/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" telescope
+Plug 'kyazdani42/nvim-tree.lua'
+" Telescope
 Plug 'nvim-telescope/telescope.nvim'
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -118,8 +114,8 @@ luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
 luafile C:\Users\congm\AppData\Local\nvim\treesitter.lua
 luafile C:\Users\congm\AppData\Local\nvim\lualine.lua
 luafile C:\Users\congm\AppData\Local\nvim\barbar.lua
+luafile C:\Users\congm\AppData\Local\nvim\nvimtree.lua
 
 " => VIM MODULE <=
 so C:\Users\congm\AppData\Local\nvim\color-scheme.vim
 so C:\Users\congm\AppData\Local\nvim\coc-config.vim
-so C:\Users\congm\AppData\Local\nvim\nerdtree-config.vim
