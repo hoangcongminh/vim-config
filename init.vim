@@ -14,8 +14,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'akinsho/toggleterm.nvim'
 " File and folder management
 Plug 'kyazdani42/nvim-tree.lua'
-" Telescope
-Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -28,6 +30,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'dart-lang/dart-vim-plugin'
 " Color Scheme 
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'EdenEast/nightfox.nvim'
 Plug 'morhetz/gruvbox'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'eddyekofo94/gruvbox-flat.nvim'
@@ -57,10 +60,10 @@ call plug#end()
 " => GENERAL SETTINGS <=
 let mapleader=" "
 
-" set shell=pwsh
-" set shellcmdflag=-command
-" set shellquote=\"
-" set shellxquote=
+let &shell = has('win32') ? 'pwsh' : 'powershell'
+set shellquote= shellpipe=\| shellxquote=
+set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
+set shellredir=\|\ Out-File\ -Encoding\ UTF8
 
 set noshowmode
 set termguicolors
@@ -69,7 +72,7 @@ set relativenumber
 
 set smartindent
 
-set scrolloff=8
+" set scrolloff=8
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
@@ -78,6 +81,8 @@ set shiftround
 set noswapfile
 set wrap
 set mouse=a "enable mouse for all mode
+
+nnoremap <leader>p :Files<CR>
 
 " Map Emacs like movement in Insert mode
 inoremap <C-n> <Down>
@@ -109,7 +114,6 @@ endif
 
 " => LUA MODULE <=
 luafile C:\Users\congm\AppData\Local\nvim\toggleterm.lua
-luafile C:\Users\congm\AppData\Local\nvim\telescope.lua
 luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
 luafile C:\Users\congm\AppData\Local\nvim\treesitter.lua
 luafile C:\Users\congm\AppData\Local\nvim\lualine.lua

@@ -18,7 +18,6 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ 'coc-flutter-tools',
-  \ 'coc-flutter',
   \ 'coc-lua',
   \ 'coc-bloc',
   \ 'coc-snippets',

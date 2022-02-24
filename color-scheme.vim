@@ -1,11 +1,15 @@
 let g:vscode_style = "dark"
 let g:vscode_transparent = 0.8
 
-colorscheme vscode
+let g:tokyonight_transparent = 'true'
+let g:tokyonight_transparent_sidebar = 'true'
+
+" colorscheme vscode
 " colorscheme gruvbox
 " colorscheme gruvbox-flat
-" colorscheme tokyonight
+colorscheme tokyonight
 " colorscheme spaceduck
+" colorscheme dawnfox
 "
  let g:tokyonight_colors = {
    \ 'hint': 'orange',
