@@ -1,5 +1,5 @@
   " / ____/___  ____  ____ _   /  |/  (_)___  / /_ 
- " / /   / __ \/ __ \/ __ `/  / /|_/ / / __ \/ __ \
+ " / /   / __ \/ __ \/ __ `williamboman/nvim-lsp-installer/  / /|_/ / / __ \/ __ \
 " / /___/ /_/ / / / / /_/ /  / /  / / / / / / / / /
 " \____/\____/_/ /_/\__, /  /_/  /_/_/_/ /_/_/ /_/ 
    "               /____/                          
@@ -25,9 +25,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'natebosch/dartlang-snippets'
 " Language support
-Plug 'tpope/vim-projectionist'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Dart
 Plug 'dart-lang/dart-vim-plugin'
 " Color Scheme 
@@ -58,63 +57,16 @@ Plug 'tpope/vim-surround'
 
 call plug#end()
 
-" => GENERAL SETTINGS <=
-let mapleader=" "
-
-let &shell = has('win32') ? 'pwsh' : 'powershell'
-set shellquote= shellpipe=\| shellxquote=
-set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
-set shellredir=\|\ Out-File\ -Encoding\ UTF8
-
-set noshowmode
-set termguicolors
-set number
-set relativenumber
-
-set smartindent
-
-" set scrolloff=8
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set shiftround
-
-set noswapfile
-set wrap
-set mouse=a "enable mouse for all mode
-
-nnoremap <leader>p :FZF<CR>
-
-" Map Emacs like movement in Insert mode
-" inoremap <C-n> <Down>
-" inoremap <C-p> <Up>
-inoremap <C-f> <Right>
-inoremap <C-b> <Left>
-" inoremap <C-e> <C-o>$
-" inoremap <C-a> <C-o>^
-
-" Go to next quickfix(error)
-nnoremap <C-k> :cp<CR>
-nnoremap <C-j> :cn<CR>
-
-noremap <leader>/ :Commentary<cr>
-
-" Git
-nmap <leader>gs :G<CR>
-nmap <leader>gh :diffget //2<CR>
-nmap <leader>gl :diffget //3<CR>
-
-" => ANOTHER <=
-" Disable Ctrl-Z(suspend not work in windows)
-let s:is_win = has('win32') || has('win64')
-if s:is_win
-    " ... other Windows specific settings
-
-    nmap <C-z> <Nop>
-endif
+" always show the signcolumn
+autocmd BufRead,BufNewFile * setlocal signcolumn=yes
+" remove the color from the signColumn
+autocmd BufRead,BufNewFile * highlight clear SignColumn
 
 " => LUA MODULE <=
+luafile C:\Users\congm\AppData\Local\nvim\keymaps.lua
+luafile C:\Users\congm\AppData\Local\nvim\settings.lua
 luafile C:\Users\congm\AppData\Local\nvim\toggleterm.lua
+luafile C:\Users\congm\AppData\Local\nvim\keymaps.lua
 luafile C:\Users\congm\AppData\Local\nvim\gitsigns.lua
 luafile C:\Users\congm\AppData\Local\nvim\treesitter.lua
 luafile C:\Users\congm\AppData\Local\nvim\lualine.lua
