@@ -10,6 +10,8 @@ call plug#begin('C:\Users\congm\AppData\Local\nvim\plugged')
 Plug 'sheerun/vim-polyglot'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'p00f/nvim-ts-rainbow'
 " FloatTerm
 Plug 'akinsho/toggleterm.nvim'
 " File and folder management
@@ -53,7 +55,6 @@ Plug 'github/copilot.vim'
 
 "Other
 Plug 'tpope/vim-surround'
-Plug 'frazrepo/vim-rainbow'
 
 call plug#end()
 
@@ -82,23 +83,23 @@ set noswapfile
 set wrap
 set mouse=a "enable mouse for all mode
 
-nnoremap <leader>p :Files<CR>
+nnoremap <leader>p :FZF<CR>
 
 " Map Emacs like movement in Insert mode
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
+" inoremap <C-n> <Down>
+" inoremap <C-p> <Up>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
-inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>^
+" inoremap <C-e> <C-o>$
+" inoremap <C-a> <C-o>^
 
 " Go to next quickfix(error)
 nnoremap <C-k> :cp<CR>
 nnoremap <C-j> :cn<CR>
-nnoremap <F2> :tabn<CR>
 
 noremap <leader>/ :Commentary<cr>
 
+" Git
 nmap <leader>gs :G<CR>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
